@@ -1,4 +1,6 @@
 String MAIN_page = R"=====(
+
+#HTML template of simple web interface    
 <!DOCTYPE html>
 <html>
 <body>
@@ -22,6 +24,7 @@ String MAIN_page = R"=====(
 </div>
 
 
+#All JS needed to handle AJAX calls 
 <script>
 
 var n = 0;
@@ -39,11 +42,9 @@ var yourcode;
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var ADCValue = this.responseText;
-           
-        
         
     var table = document.getElementById("dataTable");
-    var row = table.insertRow(1); //Add after headings
+    var row = table.insertRow(1); 
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     cell1.innerHTML = (n/50);
