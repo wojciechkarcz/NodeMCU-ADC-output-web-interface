@@ -1,17 +1,11 @@
-/*
- *Program przeznaczony do odczytywania wartosci analogowych rejestrowanych przez NodeMCU 
- *za pomoca prostego interfejsu WWW
- *Program stworzony przez Centrum Nauki Kopernik w ramach projektu Ersamus+ Hands on Remote 
- */
- 
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 
-#include "index.h" //odniesienie do pliku index.h, w ktorym znajduje sie kod HTML ze strona www oraz skrypty JS
+#include "index.h" //name of the template file with HTML and JS scripts; must be in the same directory
 #define LED 2  
 
-//Nazwa i haslo sieci wifi tworzonej przez NodeMCU; mozna je dowolnie zmienic 
+//SSID and password of wifi network created by NodeMCU. If password left blank, there will be an open network created.
 const char* ssid = "NodeMCU";
 const char* password = "";
 
@@ -29,9 +23,9 @@ void handleADC() {
 }
 
 
-//==============================================================
+//==================================================
 //                  SETUP
-//==============================================================
+//==================================================
 void setup(void){
   Serial.begin(115200);
   WiFi.softAP(ssid, password);
@@ -48,9 +42,9 @@ void setup(void){
   pinMode(LED,OUTPUT);
 }
 
-//==============================================================
+//===================================================
 //                     LOOP
-//==============================================================
+//===================================================
 void loop(void){
   server.handleClient();         
 }
